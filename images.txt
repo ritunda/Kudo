@@ -1,0 +1,12 @@
+# images.txt
+# Lines starting with # are comments
+
+p1|https://raw.githubusercontent.com/YOUR-USER/YOUR-REPO/main/images/headphones.jpg
+p2|https://raw.githubusercontent.com/YOUR-USER/YOUR-REPO/main/images/watch.jpg
+p3|https://raw.githubusercontent.com/YOUR-USER/YOUR-REPO/main/images/coffee.jpg
+p4|https://raw.githubusercontent.com/YOUR-USER/YOUR-REPO/main/images/lamp.jpg
+p5|https://raw.githubusercontent.com/YOUR-USER/YOUR-REPO/main/images/bands.jpg
+p6|https://raw.githubusercontent.com/YOUR-USER/YOUR-REPO/main/images/serum.jpg
+p7|https://raw.githubusercontent.com/YOUR-USER/YOUR-REPO/main/images/backpack.jpg
+p8|https://raw.githubusercontent.com/YOUR-USER/YOUR-REPO/main/images/scale.jpg
+p9|https://raw.githubusercontent.com/YOUR-USER/YOUR-REPO/main/images/toothbrush.jpg

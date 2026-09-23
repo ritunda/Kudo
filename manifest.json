@@ -1,0 +1,26 @@
+{
+  "name": "KUDO — Curated Stock",
+  "short_name": "KUDO",
+  "description": "Hand-picked stock. Order on WhatsApp.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F4F4F2",
+  "theme_color": "#F4F4F2",
+  "categories": ["shopping", "lifestyle"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='112' fill='%230C0C0E'/%3E%3Ctext x='256' y='352' font-family='Inter,Arial,sans-serif' font-size='300' font-weight='800' fill='%23D8FF3E' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' fill='%230C0C0E'/%3E%3Ctext x='256' y='352' font-family='Inter,Arial,sans-serif' font-size='300' font-weight='800' fill='%23D8FF3E' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

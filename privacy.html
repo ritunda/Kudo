@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FF4747">
+<title>Privacy Policy & Terms — Kudo</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23FF4747'/%3E%3Ctext x='50' y='68' font-size='58' font-weight='900' text-anchor='middle' fill='white' font-family='system-ui'%3EK%3C/text%3E%3C/svg%3E">
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('kudo_theme');
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+    var a = localStorage.getItem('kudo_accent');
+    if (a) document.documentElement.style.setProperty('--primary', a);
+  }catch(e){}
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F5F5; --surface:#FFFFFF; --surface-2:#F0F0F0;
+  --ink:#191919; --muted:#767676; --line:#EDEDED;
+  --primary:#FF4747; --primary-soft:#FFF0F0;
+  --accent:#FF6B35;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06);
+  --shadow-md:0 6px 20px rgba(0,0,0,.08);
+}
+[data-theme="dark"]{
+  --bg:#0E0E0E; --surface:#1A1A1A; --surface-2:#262626;
+  --ink:#F5F5F5; --muted:#9A9A9A; --line:#2A2A2A;
+  --primary-soft:#2A1515;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s;font-size:15px}
+a{color:var(--primary);text-decoration:none;font-weight:600;transition:opacity .15s}
+a:hover{opacity:.75}
+::selection{background:var(--primary);color:#fff}
+
+/* HEADER */
+.top-bar{position:sticky;top:0;z-index:50;background:var(--surface);border-bottom:1px solid var(--line);padding:14px 20px;display:flex;align-items:center;gap:14px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:color-mix(in srgb,var(--surface) 88%,transparent)}
+[data-theme="dark"] .top-bar{background:rgba(26,26,26,.88)}
+.top-bar .back{width:36px;height:36px;border-radius:50%;background:var(--surface-2);display:grid;place-items:center;color:var(--ink);font-size:16px;font-weight:800;flex-shrink:0;transition:transform .15s;border:0;cursor:pointer}
+.top-bar .back:active{transform:scale(.9)}
+.top-bar .brand{font-weight:900;font-size:18px;letter-spacing:-.04em;color:var(--primary)}
+.top-bar .brand .dot{color:var(--ink)}
+.top-bar .theme-btn{margin-left:auto;width:36px;height:36px;border-radius:50%;background:var(--surface-2);display:grid;place-items:center;font-size:15px;border:0;cursor:pointer;color:var(--ink);transition:transform .15s}
+.top-bar .theme-btn:active{transform:scale(.9)}
+[data-theme="light"] .ic-moon{display:none}
+[data-theme="dark"] .ic-sun{display:none}
+
+/* CONTAINER */
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+/* HERO */
+.hero{padding:40px 0 24px;border-bottom:1px solid var(--line);margin-bottom:28px}
+.hero .badge{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:var(--primary-soft);color:var(--primary);padding:5px 11px;border-radius:99px;margin-bottom:14px}
+.hero h1{font-size:32px;font-weight:900;letter-spacing:-.04em;line-height:1.15;margin-bottom:10px}
+.hero p{font-size:14px;color:var(--muted);max-width:560px}
+.hero .meta{margin-top:16px;font-size:12px;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap}
+.hero .meta b{color:var(--ink);font-weight:700}
+
+/* TABS */
+.tabs{display:flex;gap:6px;background:var(--surface-2);padding:4px;border-radius:12px;margin-bottom:28px;width:fit-content;max-width:100%;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{font-size:13px;font-weight:700;padding:9px 18px;border-radius:9px;background:transparent;color:var(--muted);border:0;cursor:pointer;white-space:nowrap;transition:.18s;letter-spacing:-.01em}
+.tabs button.active{background:var(--surface);color:var(--ink);box-shadow:var(--shadow-sm)}
+
+/* SECTIONS */
+.panel{display:none;animation:fadeIn .28s ease both}
+.panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* TOC */
+.toc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:28px}
+.toc h3{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.toc ol{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 20px}
+.toc ol li{font-size:13.5px;font-weight:600;color:var(--ink)}
+.toc ol li a{color:var(--muted);font-weight:600;display:inline-flex;align-items:center;gap:7px}
+.toc ol li a::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--primary);flex-shrink:0}
+.toc ol li a:hover{color:var(--primary)}
+
+/* CONTENT */
+h2.sec{font-size:22px;font-weight:900;letter-spacing:-.03em;margin:36px 0 6px;padding-top:20px;display:flex;align-items:center;gap:12px}
+h2.sec .num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:9px;background:var(--primary);color:#fff;font-size:13px;font-weight:900;flex-shrink:0}
+h2.sec:first-of-type{margin-top:0;padding-top:0}
+h3.sub{font-size:15px;font-weight:800;letter-spacing:-.01em;margin:22px 0 8px;color:var(--ink)}
+p{font-size:14.5px;color:var(--ink);margin-bottom:12px}
+p.lead{font-size:15px;color:var(--muted)}
+p.note{font-size:13px;color:var(--muted);background:var(--surface);border-left:3px solid var(--primary);border-radius:0 8px 8px 0;padding:12px 16px;margin:14px 0}
+ul.list,ol.list{margin:8px 0 16px 0;padding-left:0;list-style:none}
+ul.list li,ol.list li{font-size:14.5px;color:var(--ink);padding:6px 0 6px 26px;position:relative;line-height:1.65}
+ul.list li::before{content:'';position:absolute;left:6px;top:14px;width:6px;height:6px;border-radius:50%;background:var(--primary)}
+ol.list{counter-reset:olist}
+ol.list li{counter-increment:olist}
+ol.list li::before{content:counter(olist);position:absolute;left:0;top:6px;width:20px;height:20px;border-radius:50%;background:var(--primary-soft);color:var(--primary);font-size:11px;font-weight:800;display:grid;place-items:center}
+.callout{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:20px 0;font-size:14px;color:var(--muted);line-height:1.65}
+.callout b{color:var(--ink);font-weight:800;display:block;font-size:13px;margin-bottom:6px;display:flex;align-items:center;gap:7px}
+.callout b .ic{font-size:15px}
+.contact-card{background:linear-gradient(135deg,var(--primary) 0%,var(--accent) 100%);color:#fff;border-radius:16px;padding:22px;margin:28px 0}
+.contact-card h4{font-size:16px;font-weight:900;margin-bottom:6px;letter-spacing:-.02em}
+.contact-card p{color:rgba(255,255,255,.85);font-size:13.5px;margin-bottom:14px}
+.contact-card a{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--primary);padding:10px 18px;border-radius:99px;font-size:13px;font-weight:800;transition:transform .15s}
+.contact-card a:hover{opacity:1;transform:scale(.97)}
+.contact-card a svg{width:16px;height:16px;fill:var(--primary)}
+
+/* FOOTER */
+.footer{margin-top:56px;padding-top:28px;border-top:1px solid var(--line);text-align:center;font-size:12px;color:var(--muted)}
+.footer .brand{font-weight:900;font-size:14px;color:var(--primary);letter-spacing:-.02em;display:block;margin-bottom:4px}
+.footer .links{margin-top:12px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.footer .links a{color:var(--muted);font-weight:600}
+.footer .links a:hover{color:var(--primary)}
+
+/* RESPONSIVE */
+@media (max-width:520px){
+  body{font-size:14.5px}
+  .wrap{padding:0 16px 60px}
+  .hero{padding:28px 0 18px}
+  .hero h1{font-size:26px}
+  h2.sec{font-size:19px;margin-top:28px;padding-top:16px}
+  h2.sec .num{width:28px;height:28px;font-size:12px}
+  .toc ol{grid-template-columns:1fr}
+  .toc{padding:16px}
+  .top-bar{padding:12px 16px}
+}
+@media print{
+  .top-bar,.tabs,.contact-card,.footer .links{display:none}
+  body{background:#fff;color:#000}
+  .panel{display:block !important;page-break-before:always}
+  .panel:first-of-type{page-break-before:auto}
+  a{color:#000;text-decoration:underline}
+}
+</style>
+</head>
+<body>
+
+<header class="top-bar">
+  <button class="back" onclick="history.length > 1 ? history.back() : location.href='./'" aria-label="Back">←</button>
+  <div class="brand">Kudo<span class="dot">.</span></div>
+  <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+    <span class="ic-sun">☀</span><span class="ic-moon">☾</span>
+  </button>
+</header>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="badge">📄 Legal</span>
+    <h1>Privacy Policy & Terms of Service</h1>
+    <p>Plain-language legal documents covering how we handle your information, what you can expect from us, and what we ask of you.</p>
+    <div class="meta">
+      <span>Last updated: <b id="lastUpdated">—</b></span>
+      <span>Version: <b>1.0</b></span>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs" role="tablist">
+    <button class="active" data-tab="privacy" role="tab">Privacy Policy</button>
+    <button data-tab="terms" role="tab">Terms of Service</button>
+  </div>
+
+  <!-- ==================== PRIVACY ==================== -->
+  <div class="panel active" id="panel-privacy">
+
+    <div class="toc">
+      <h3>On this page</h3>
+      <ol>
+        <li><a href="#p1">What we collect</a></li>
+        <li><a href="#p2">How we use it</a></li>
+        <li><a href="#p3">What we don't collect</a></li>
+        <li><a href="#p4">Cookies & storage</a></li>
+        <li><a href="#p5">Third parties</a></li>
+        <li><a href="#p6">Your rights</a></li>
+        <li><a href="#p7">Data retention</a></li>
+        <li><a href="#p8">Children</a></li>
+        <li><a href="#p9">Security</a></li>
+        <li><a href="#p10">Changes</a></li>
+      </ol>
+    </div>
+
+    <p class="lead">This Privacy Policy explains what information <b id="bizName1">this store</b> ("we", "us") collects when you use our catalog at <span id="siteUrl1">this website</span> (the "Service"), how we use it, and the choices you have. We've kept it short and readable — no legalese.</p>
+
+    <h2 class="sec" id="p1"><span class="num">1</span>What we collect</h2>
+
+    <h3 class="sub">Information you give us</h3>
+    <ul class="list">
+      <li><b>WhatsApp conversation</b> — when you tap "Order on WhatsApp", a message opens on your device with pre-filled details. We only see the message if you send it. Anything you write in that conversation (name, delivery address, phone number, notes) is visible to us.</li>
+      <li><b>Order details</b> — the items, quantities, variants, and delivery preferences you send us. These are what we use to fulfil your order.</li>
+      <li><b>Payment details</b> — if you pay via M-Pesa or bank transfer, we see the transaction reference and the name registered to the payment account. We do not receive or store your PIN, full card number, or bank credentials.</li>
+    </ul>
+
+    <h3 class="sub">Information collected automatically</h3>
+    <ul class="list">
+      <li><b>Local device storage</b> — we store small amounts of data in your browser (see section 4) so the site remembers your cart, wishlist, theme, and preferences between visits. This stays on your device.</li>
+      <li><b>No server-side logs</b> — this site is a static page. We don't run servers, don't log IP addresses, don't track you across other websites.</li>
+    </ul>
+
+    <h2 class="sec" id="p2"><span class="num">2</span>How we use it</h2>
+    <ul class="list">
+      <li>To confirm, fulfil, and deliver your order</li>
+      <li>To reply to your questions on WhatsApp</li>
+      <li>To arrange returns, exchanges, or refunds</li>
+      <li>To send you a "back in stock" message if you asked for one</li>
+      <li>To improve our product range based on what buyers ask for</li>
+    </ul>
+    <p>We do not use your information for marketing unless you specifically ask us to, and we never sell or rent it to anyone.</p>
+
+    <h2 class="sec" id="p3"><span class="num">3</span>What we don't collect</h2>
+    <ul class="list">
+      <li>No account or password — you never sign up for anything</li>
+      <li>No email address unless you choose to share one in a chat</li>
+      <li>No GPS location or precise device location</li>
+      <li>No contacts, photos, or files from your phone</li>
+      <li>No biometric data</li>
+      <li>No browsing history from other sites</li>
+      <li>No third-party advertising trackers</li>
+    </ul>
+
+    <h2 class="sec" id="p4"><span class="num">4</span>Cookies & local storage</h2>
+    <p>We don't use cookies. Instead, we use your browser's <b>localStorage</b> to remember a few things between visits:</p>
+    <ul class="list">
+      <li>Your cart contents</li>
+      <li>Your wishlist ("Saved") items</li>
+      <li>Your theme preference (light or dark)</li>
+      <li>Your recently viewed items</li>
+      <li>Your admin PIN (if you're the store owner)</li>
+    </ul>
+    <p class="note">All of this stays on your device. We can't see it, and it never leaves your browser unless you clear it or export it yourself. To clear it, use your browser's "Clear site data" option for this website.</p>
+
+    <h2 class="sec" id="p5"><span class="num">5</span>Third parties</h2>
+    <p>We share only what's necessary with these parties:</p>
+    <ul class="list">
+      <li><b>WhatsApp (Meta Platforms Inc.)</b> — the entire ordering flow happens on WhatsApp. Your chat with us is subject to <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener">WhatsApp's own Privacy Policy</a>.</li>
+      <li><b>M-Pesa (Safaricom)</b> — if you pay via M-Pesa, your transaction is governed by <a href="https://www.safaricom.co.ke/personal/m-pesa" target="_blank" rel="noopener">Safaricom's terms</a>.</li>
+      <li><b>Courier / delivery partners</b> — we share your name, phone number, and delivery address with the person delivering your order. Nothing else.</li>
+      <li><b>GitHub Pages</b> — this site is hosted on GitHub. GitHub may collect standard web request logs (IP, user agent) as part of serving any page. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">GitHub's Privacy Statement</a>.</li>
+      <li><b>Unsplash / image hosts</b> — product images may be loaded from third-party CDNs, which see your IP when the image loads.</li>
+    </ul>
+
+    <h2 class="sec" id="p6"><span class="num">6</span>Your rights</h2>
+    <p>You can ask us at any time to:</p>
+    <ul class="list">
+      <li>Show you what information we hold about you (usually just your WhatsApp conversation)</li>
+      <li>Delete that information from our WhatsApp history</li>
+      <li>Stop messaging you (we'll respect a "do not message" request immediately)</li>
+    </ul>
+    <p>To exercise any of these, just message us on WhatsApp. We'll respond within 7 days.</p>
+
+    <h2 class="sec" id="p7"><span class="num">7</span>Data retention</h2>
+    <ul class="list">
+      <li><b>WhatsApp conversations</b> — kept for as long as your order or account relationship is active, and for up to 12 months after your last message, then deleted.</li>
+      <li><b>Order records</b> — kept for 24 months for returns, warranty, and accounting purposes.</li>
+      <li><b>Local device data</b> — stays on your device until you clear it. We have no way to see or delete it remotely.</li>
+    </ul>
+
+    <h2 class="sec" id="p8"><span class="num">8</span>Children</h2>
+    <p>This Service is not intended for children under 13. We don't knowingly collect information from children. If a parent or guardian believes their child has shared information with us, please contact us and we'll delete it.</p>
+
+    <h2 class="sec" id="p9"><span class="num">9</span>Security</h2>
+    <p>We take reasonable steps to keep your information safe:</p>
+    <ul class="list">
+      <li>We never ask for your M-Pesa PIN, bank password, or card details in WhatsApp.</li>
+      <li>Payment confirmation always happens on the same thread you started your order on.</li>
+      <li>We do not share your delivery details with anyone except the courier handling your order.</li>
+    </ul>
+    <p class="note">⚠️ <b>Never send money before we confirm your order on the same WhatsApp thread.</b> If you receive a message from a different number claiming to be us, verify by replying to the original thread first.</p>
+
+    <h2 class="sec" id="p10"><span class="num">10</span>Changes</h2>
+    <p>If we update this policy, we'll change the "Last updated" date at the top of this page. Significant changes will be announced on our WhatsApp status or on the home page of the store.</p>
+
+    <div class="contact-card">
+      <h4>Questions about your privacy?</h4>
+      <p>Message us on WhatsApp and we'll respond within a few hours during business hours.</p>
+      <a id="waLink1" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.22-8.22 8.22z"/></svg>
+        Message us on WhatsApp
+      </a>
+    </div>
+
+  </div>
+
+  <!-- ==================== TERMS ==================== -->
+  <div class="panel" id="panel-terms">
+
+    <div class="toc">
+      <h3>On this page</h3>
+      <ol>
+        <li><a href="#t1">Who we are</a></li>
+        <li><a href="#t2">Using this site</a></li>
+        <li><a href="#t3">Orders & acceptance</a></li>
+        <li><a href="#t4">Pricing & payment</a></li>
+        <li><a href="#t5">Delivery</a></li>
+        <li><a href="#t6">Returns & refunds</a></li>
+        <li><a href="#t7">Product info</a></li>
+        <li><a href="#t8">Your responsibilities</a></li>
+        <li><a href="#t9">Our responsibilities</a></li>
+        <li><a href="#t10">Intellectual property</a></li>
+        <li><a href="#t11">Liability</a></li>
+        <li><a href="#t12">Governing law</a></li>
+        <li><a href="#t13">Changes</a></li>
+        <li><a href="#t14">Contact</a></li>
+      </ol>
+    </div>
+
+    <p class="lead">These Terms of Service govern your use of the catalog and services offered by <b id="bizName2">this store</b> at <span id="siteUrl2">this website</span>. By browsing or ordering, you agree to them. If you don't agree, please don't use the Service.</p>
+
+    <h2 class="sec" id="t1"><span class="num">1</span>Who we are</h2>
+    <p>We are an independent online retailer operating in Kenya. Our contact details are on the home page and in the Info tab of this app. All communication is via WhatsApp.</p>
+
+    <h2 class="sec" id="t2"><span class="num">2</span>Using this site</h2>
+    <ul class="list">
+      <li>You may browse, search, save items, and place orders for personal use.</li>
+      <li>You may not scrape, copy, mirror, or resell the content or design of this site.</li>
+      <li>You may not attempt to interfere with the site's operation or security.</li>
+      <li>You may not place orders in bad faith (e.g. fake orders you don't intend to receive).</li>
+    </ul>
+    <p>We reserve the right to refuse service to anyone who abuses these rules.</p>
+
+    <h2 class="sec" id="t3"><span class="num">3</span>Orders & acceptance</h2>
+    <ol class="list">
+      <li>You place an order by tapping "Order on WhatsApp" and sending the pre-filled message.</li>
+      <li>Your message is an <b>offer to buy</b>, not a confirmed order.</li>
+      <li>A contract is formed only when we reply on WhatsApp confirming availability, price, and delivery.</li>
+      <li>If we can't confirm within 24 hours, the offer expires automatically.</li>
+      <li>We may decline an order if the item is out of stock, if the price was displayed incorrectly, or if we suspect fraud.</li>
+    </ol>
+
+    <h2 class="sec" id="t4"><span class="num">4</span>Pricing & payment</h2>
+    <ul class="list">
+      <li>All prices are shown in Kenyan Shillings (KES) and include VAT where applicable.</li>
+      <li>Prices may change without notice. The price we confirm on WhatsApp is the price you pay.</li>
+      <li>Delivery fees are quoted separately in the WhatsApp chat before you confirm.</li>
+      <li>We accept M-Pesa, cash on delivery (within our zones), and bank transfer for larger orders.</li>
+      <li>Payment is due on delivery or before pickup, as agreed in the chat.</li>
+    </ul>
+    <p class="note">⚠️ Never send money to any number that isn't the one you're chatting with on WhatsApp. We will never ask you to pay to a "different account" mid-order.</p>
+
+    <h2 class="sec" id="t5"><span class="num">5</span>Delivery</h2>
+    <ul class="list">
+      <li><b>Same-day</b> for orders placed before 3pm within the city (subject to stock).</li>
+      <li><b>Next-day</b> for other areas.</li>
+      <li><b>Countrywide</b> via courier — timelines vary by region.</li>
+      <li><b>Pickup</b> available at our location at no fee.</li>
+    </ul>
+    <p>Risk of loss passes to you on delivery. If you're not available to receive the order and it returns to us, we may charge a re-delivery fee.</p>
+
+    <h2 class="sec" id="t6"><span class="num">6</span>Returns & refunds</h2>
+    <p><b>Change of mind:</b> You have 7 days from delivery to return unused items in their original packaging. Return shipping is your responsibility unless the item is faulty.</p>
+    <p><b>Faulty or incorrect items:</b> Contact us within 24 hours of delivery with a photo. We'll arrange a free swap or a full refund — your choice. Return shipping both ways is on us.</p>
+    <p><b>Not eligible for return:</b></p>
+    <ul class="list">
+      <li>Personalised or custom-made items (unless faulty)</li>
+      <li>Items marked as "Final sale"</li>
+      <li>Items damaged through misuse after delivery</li>
+      <li>Items without their original packaging or accessories</li>
+    </ul>
+    <p><b>Refund timing:</b> Refunds are processed within 3 working days of us receiving the returned item, via M-Pesa to the number you paid from.</p>
+
+    <h2 class="sec" id="t7"><span class="num">7</span>Product information</h2>
+    <ul class="list">
+      <li>We describe products as accurately as possible. Colours may differ slightly from photos due to screen settings.</li>
+      <li>Sizes and dimensions are given in good faith but may vary by ±5%.</li>
+      <li>Stock badges ("In stock", "Low stock", "Sold out") update in real time but occasionally lag during rapid sales. We confirm final availability on WhatsApp.</li>
+      <li>Ratings and reviews on this site are a mix of verified buyer feedback and representative samples.</li>
+    </ul>
+
+    <h2 class="sec" id="t8"><span class="num">8</span>Your responsibilities</h2>
+    <ul class="list">
+      <li>Provide accurate delivery details (name, phone, address). We're not responsible for failed deliveries caused by incorrect information.</li>
+      <li>Be reachable on WhatsApp during the delivery window.</li>
+      <li>Inspect items at delivery and flag any issues within 24 hours.</li>
+      <li>Pay the agreed amount on delivery or before pickup.</li>
+    </ul>
+
+    <h2 class="sec" id="t9"><span class="num">9</span>Our responsibilities</h2>
+    <ul class="list">
+      <li>Confirm your order within a reasonable time (usually under 2 hours during business hours).</li>
+      <li>Deliver the item as described.</li>
+      <li>Handle returns and refunds promptly and fairly.</li>
+      <li>Protect your information as described in our <a href="#privacy" onclick="switchTab('privacy');return false;">Privacy Policy</a>.</li>
+    </ul>
+
+    <h2 class="sec" id="t10"><span class="num">10</span>Intellectual property</h2>
+    <p>All content on this site — text, images, logo, design, and code — is owned by us or used with permission. You may not copy, reproduce, or redistribute it without our written consent. Product photos used under license from third parties remain the property of their owners.</p>
+
+    <h2 class="sec" id="t11"><span class="num">11</span>Liability</h2>
+    <p>To the fullest extent permitted by law:</p>
+    <ul class="list">
+      <li>We are not liable for indirect or consequential losses (e.g. lost profits, lost opportunity).</li>
+      <li>Our total liability for any single order is capped at the amount you paid for that order.</li>
+      <li>We are not liable for delays caused by events outside our control (weather, courier strikes, network outages, government action).</li>
+      <li>Nothing in these Terms limits your statutory rights as a consumer under Kenyan law.</li>
+    </ul>
+
+    <h2 class="sec" id="t12"><span class="num">12</span>Governing law</h2>
+    <p>These Terms are governed by the laws of the Republic of Kenya. Any dispute will be resolved in the courts of Nairobi, unless we agree to resolve it informally first (which we always prefer).</p>
+
+    <h2 class="sec" id="t13"><span class="num">13</span>Changes to these Terms</h2>
+    <p>We may update these Terms from time to time. The "Last updated" date at the top of this page reflects the most recent change. Continued use of the Service after a change means you accept the new Terms. We'll flag material changes on the home page.</p>
+
+    <h2 class="sec" id="t14"><span class="num">14</span>Contact</h2>
+    <p>For any question about these Terms, message us on WhatsApp. We reply within a few hours during business hours.</p>
+
+    <div class="contact-card">
+      <h4>Questions about these Terms?</h4>
+      <p>Reach us on WhatsApp — we're happy to explain anything in plain language.</p>
+      <a id="waLink2" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.22-8.22 8.22z"/></svg>
+        Message us on WhatsApp
+      </a>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span class="brand" id="footerBrand">Kudo.</span>
+    <p>© <span id="year">2026</span> — All rights reserved</p>
+    <div class="links">
+      <a href="#" onclick="switchTab('privacy');return false;">Privacy Policy</a>
+      <a href="#" onclick="switchTab('terms');return false;">Terms of Service</a>
+      <a href="./" id="backLink">Back to store</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* ================= HELPERS ================= */
+function $(s){ return document.querySelector(s); }
+function $$(s){ return Array.prototype.slice.call(document.querySelectorAll(s)); }
+
+/* ================= THEME TOGGLE ================= */
+function toggleTheme(){
+  var r = document.documentElement;
+  var n = r.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  r.setAttribute('data-theme', n);
+  try{ localStorage.setItem('kudo_theme', n); }catch(e){}
+  var meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.setAttribute('content', n === 'dark' ? '#0E0E0E' : '#FF4747');
+}
+$('#themeBtn').addEventListener('click', toggleTheme);
+
+/* ================= TABS ================= */
+function switchTab(name){
+  $$('.tabs button').forEach(function(b){
+    b.classList.toggle('active', b.getAttribute('data-tab') === name);
+  });
+  $$('.panel').forEach(function(p){
+    p.classList.toggle('active', p.id === 'panel-' + name);
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  history.replaceState(null, '', '#' + name);
+}
+$$('.tabs button').forEach(function(b){
+  b.addEventListener('click', function(){ switchTab(b.getAttribute('data-tab')); });
+});
+
+/* Handle hash on load */
+if (location.hash === '#terms') switchTab('terms');
+else if (location.hash === '#privacy') switchTab('privacy');
+
+/* ================= LOAD STORE DETAILS ================= */
+try{
+  var raw = localStorage.getItem('kudo_store_local');
+  var store = raw ? JSON.parse(raw) : {};
+  var name = (store && store.name) ? store.name : 'Kudo';
+  var wa = (store && store.whatsapp) ? String(store.whatsapp).replace(/\D/g,'') : '';
+  var loc = (store && store.location) ? store.location : '';
+
+  /* Populate placeholders */
+  var bn1 = document.getElementById('bizName1'); if (bn1) bn1.textContent = name;
+  var bn2 = document.getElementById('bizName2'); if (bn2) bn2.textContent = name;
+  var fb = document.getElementById('footerBrand'); if (fb) fb.textContent = name + '.';
+
+  /* WhatsApp links */
+  if (wa){
+    var waUrl = 'https://wa.me/' + wa + '?text=' + encodeURIComponent('Hi ' + name + ', I have a question about your policies.');
+    var w1 = document.getElementById('waLink1'); if (w1) w1.setAttribute('href', waUrl);
+    var w2 = document.getElementById('waLink2'); if (w2) w2.setAttribute('href', waUrl);
+  }
+
+  /* Page title */
+  document.title = 'Privacy & Terms — ' + name;
+}catch(e){}
+
+/* ================= LAST UPDATED ================= */
+/* Set to today's date, or a fixed date if you prefer */
+(function(){
+  var el = document.getElementById('lastUpdated');
+  if (!el) return;
+  /* Use a fixed date you can update manually: */
+  var FIXED_DATE = 'January 1, 2026';
+  el.textContent = FIXED_DATE;
+
+  /* Or uncomment below to use today's date automatically:
+  var d = new Date();
+  el.textContent = d.toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
+  */
+})();
+
+/* ================= YEAR ================= */
+(function(){
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+})();
+</script>
+
+</body>
+</html>
